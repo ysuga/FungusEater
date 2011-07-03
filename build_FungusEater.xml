@@ -1,0 +1,28 @@
+<!--
+# -*- Buildfile -*-
+# @file  build_FungusEater.xml
+# @brief RTComponent makefile for "FungusEater component"
+# @date  $Date: 2010/01/29 14:50:16 $
+#
+# $Id: build_FungusEater.xml,v 1.1 2010/01/29 14:50:16 ysuga Exp $
+ -->
+<project name="FungusEater" default="compile">
+	<property name="source" value="." />
+	<property name="dest" value="classes" />
+	<property environment="env" />
+
+	<target name="mkdir">
+		<mkdir dir="${dest}" />
+	</target>
+
+
+	<target name="compile" depends="mkdir">
+		<javac srcdir="${source}" destdir="${dest}">
+			<classpath>
+				<fileset dir="${env.RTM_JAVA_ROOT}\jar">
+					<include name="*.jar"/>
+				</fileset>
+			</classpath>
+		</javac>
+	</target>
+</project>
